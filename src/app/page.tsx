@@ -15,8 +15,8 @@ import NFTCard from '@/components/NFTCard/NFTCard';
 import LoadingSkeleton from '@/components/LoadingSkeleton/LoadingSkeleton';
 
 
-const MMSDK = new MetaMaskSDK();
-const ethereum: any = MMSDK.getProvider(); // You can also access via window.ethereum
+// const MMSDK = new MetaMaskSDK();
+// const ethereum: any = MMSDK.getProvider(); // You can also access via window.ethereum
 
 interface NFTData {
   items: any[];
@@ -49,6 +49,8 @@ interface NFTData {
 //   return { props: { nftData: data } }
 // }
 
+
+
 const Home = () => {
 
   const isMobile = useMediaQuery({ query: '(max-width: 520px)' });
@@ -71,9 +73,9 @@ const Home = () => {
     setIsLoading(true);
     if (connectionStatus == "connected") {
       console.log('connected');
-      const account = await ethereum.request({ method: 'eth_requestAccounts' });
+      // const account = await ethereum.request({ method: 'eth_requestAccounts' });
 
-      const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner?owner=ETHEREUM:${account[0]}`).then((res) => res.json()).then((data) => {
+      const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner?owner=ETHEREUM:${walletAddress}`).then((res) => res.json()).then((data) => {
         console.log(data);
         setNftData(data);
         setItemsList(data.items);

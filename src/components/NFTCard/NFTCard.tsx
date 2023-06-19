@@ -3,8 +3,8 @@ import React from 'react'
 const NFTCard = (props: any) => {
   return (
     <div className="card card-compact bg-base-100  w-[30%] min-w-[300px] max-w-[500px] m-[10px] shadow-xl hover:shadow-2xl transition-all	">
-      <figure className='flex justify-center items-center hidden h-[250px]'>
-        <img src={props.nftImage} alt="nft-image"  className='object-cover min-h-[100%]' />
+      <figure className='flex justify-center items-center h-[250px]'>
+        <img src={props.nftImage} alt="nft-image"  className='object-cover min-h-[100%] hover:scale-110 transition-all' />
       </figure>
       <div className="card-body flex flex-col justify-between">
         <h2 className="card-title">{props.nftName}</h2>
